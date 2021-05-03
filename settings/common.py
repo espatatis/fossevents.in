@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 
 # MIDDLEWARE CONFIGURATION
 # ------------------------------------------------------------------------------
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
     'django.middleware.gzip.GZipMiddleware',
@@ -66,8 +66,8 @@ USE_ETAGS = True
 # DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = env.bool("DJANGO_DEBUG", False)
-
+# DEBUG = env.bool("DJANGO_DEBUG", True)
+DEBUG = True
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
@@ -83,12 +83,34 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# DATABASES = {
+#     # Default database for local/development setup is SQLite as:
+#     # it is easier for beginners to setup and
+#     # not using postgresql specific features currently
+#     'default': env.db("DATABASE_URL", default="sqlite:///%s/fossevents.db" % ROOT_DIR),
+#     # 'default': env.db("DATABASE_URL", default="postgres://localhost/fossevents"),
+# }
+
 DATABASES = {
-    # Default database for local/development setup is SQLite as:
-    # it is easier for beginners to setup and
-    # not using postgresql specific features currently
-    'default': env.db("DATABASE_URL", default="sqlite:///%s/fossevents.db" % ROOT_DIR),
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'fossevents',
+
+        'USER': 'rohan',
+
+        'PASSWORD': 'password',
+
+        'HOST': 'localhost',
+
+        'PORT': '',
+
+    }
+
 }
+
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 
@@ -133,13 +155,13 @@ TEMPLATES = [
             ],
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
-                'django.core.context_processors.debug',
-                'django.core.context_processors.i18n',
-                'django.core.context_processors.media',
-                'django.core.context_processors.static',
-                'django.core.context_processors.tz',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                'django.core.context_processors.request',
+                'django.template.context_processors.request',
                 # Your stuff: custom template context processors go here
             ],
         },
@@ -184,7 +206,7 @@ MEDIA_URL = '/media/'
 ROOT_URLCONF = 'fossevents.urls'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
-WSGI_APPLICATION = 'wsgi.application'
+# WSGI_APPLICATION = 'wsgi.application'
 
 # AUTHENTICATION CONFIGURATION
 # ------------------------------------------------------------------------------

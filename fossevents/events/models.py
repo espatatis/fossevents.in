@@ -2,7 +2,7 @@
 import uuid
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils.functional import cached_property
 from django.utils.text import slugify
@@ -18,6 +18,7 @@ class Event(TimeStampedUUIDModel):
     """ Model to capture all details about the event.
     """
     name = models.CharField(blank=False, null=False, max_length=100, verbose_name=_("name"),)
+    location = models.CharField(blank=True, max_length=200, verbose_name=_("loc"))
     description = MarkdownField(blank=False, null=False, verbose_name=_("description"))
     start_date = models.DateTimeField(blank=False, verbose_name=_("start date"))
     end_date = models.DateTimeField(blank=True, verbose_name=_("end date"))
@@ -54,7 +55,7 @@ class Event(TimeStampedUUIDModel):
 
     @cached_property
     def description_html(self):
-        return markdown(self.description)
+        return markdown(self.description, extensions=['fenced_code', 'codehilite'])
 
     def save(self, *args, **kwargs):
         if not self.auth_token:
@@ -63,9 +64,9 @@ class Event(TimeStampedUUIDModel):
 
 
 class EventReview(TimeStampedUUIDModel):
-    event = models.ForeignKey(Event, related_name="reviews")
+    event = models.ForeignKey(Event, related_name="reviews", on_delete=models.CASCADE)
     comment = MarkdownField(blank=True, null=True, verbose_name=_("Notes"))
-    moderator = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="event_reviews")
+    moderator = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="event_reviews", on_delete=models.CASCADE)
     is_approved = models.BooleanField()
 
     class Meta:
