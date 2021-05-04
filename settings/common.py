@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'reversion',
     'crispy_forms',  # Form layouts
     'compressor',
-    'django_markdown',
+    # 'django_markdown',
     # 'djcelery_email',
 ]
 
