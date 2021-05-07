@@ -7,8 +7,8 @@ from django.db import models
 from django.utils.functional import cached_property
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
-from .django_markdown.models import MarkdownField
-from .django_markdown.utils import markdown
+from django_markdown.models import MarkdownField
+from django_markdown.utils import markdown
 
 from fossevents.base.models import TimeStampedUUIDModel
 from fossevents.base.utils import get_date_diff_display

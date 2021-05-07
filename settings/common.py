@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'reversion',
     'crispy_forms',  # Form layouts
     'compressor',
-    # 'django_markdown',
+    'fossevents.django_markdown',
     # 'djcelery_email',
 ]
 
@@ -67,7 +67,7 @@ USE_ETAGS = True
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 # DEBUG = env.bool("DJANGO_DEBUG", True)
-DEBUG = True
+DEBUG = False
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS

@@ -36,7 +36,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # Static Assests
 # ------------------------
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Compress static files offline
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
@@ -49,15 +49,15 @@ COMPRESS_CSS_FILTERS = [
 
 # EMAIL
 # ------------------------------------------------------------------------------
-DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
-                         default='FOSS-Events <noreply@fossevents.in>')
-EMAIL_HOST = env("DJANGO_EMAIL_HOST", default='smtp.sendgrid.com')
-EMAIL_HOST_PASSWORD = env("SENDGRID_PASSWORD")
-EMAIL_HOST_USER = env('SENDGRID_USERNAME')
-EMAIL_PORT = env.int("EMAIL_PORT", default=587)
-EMAIL_SUBJECT_PREFIX = env("EMAIL_SUBJECT_PREFIX", default='[FOSS-Events] ')
-EMAIL_USE_TLS = True
-SERVER_EMAIL = EMAIL_HOST_USER
+# DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
+#                          default='FOSS-Events <noreply@fossevents.in>')
+# EMAIL_HOST = env("DJANGO_EMAIL_HOST", default='smtp.sendgrid.com')
+# EMAIL_HOST_PASSWORD = env("SENDGRID_PASSWORD")
+# EMAIL_HOST_USER = env('SENDGRID_USERNAME')
+# EMAIL_PORT = env.int("EMAIL_PORT", default=587)
+# EMAIL_SUBJECT_PREFIX = env("EMAIL_SUBJECT_PREFIX", default='[FOSS-Events] ')
+# EMAIL_USE_TLS = True
+# SERVER_EMAIL = EMAIL_HOST_USER
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
