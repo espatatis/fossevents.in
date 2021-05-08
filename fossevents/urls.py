@@ -8,6 +8,7 @@ from django.urls import path
 from .events.feeds import AtomLatestEventFeed, LatestEvents
 from .events.views import event_detail
 from .views import homepage
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 uuid_regex = '[a-fA-F0-9]{8}-?[a-fA-F0-9]{4}-?[1345][a-fA-F0-9]{3}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{12}'
 app_name = 'events'
@@ -19,6 +20,8 @@ urlpatterns = [
     url(r'^event/', include('fossevents.events.urls', namespace='events')),
     url(r'^users/', include('fossevents.users.urls', namespace='users')),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
 
 urlpatterns += [
     url(r'^feed/rss\.xml$', LatestEvents(), name='feed-rss'),
