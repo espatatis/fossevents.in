@@ -1,2 +1,2 @@
 web: gunicorn wsgi:application
-worker: celery -A fossevents worker -l info
+#worker: celery -A fossevents worker -l info

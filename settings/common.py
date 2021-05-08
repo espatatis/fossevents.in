@@ -94,21 +94,7 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 
 DATABASES = {
 
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'fossevents',
-
-        'USER': 'rohan',
-
-        'PASSWORD': 'password',
-
-        'HOST': 'localhost',
-
-        'PORT': '',
-
-    }
+    'default': env.db("DATABASE_URL", default="sqlite:///%s/fossevents.db" % ROOT_DIR),
 
 }
 
