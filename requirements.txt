@@ -2,7 +2,7 @@ Faker==8.1.2
 django_environ==0.4.5
 mock==4.0.3
 arrow==1.0.3
-#django_markdown_app==0.9.6
+django_markdown_app==0.9.6
 pytest==6.2.3
 django_debug_toolbar==3.2.1
 whitenoise==5.2.0
@@ -24,3 +24,4 @@ django-extensions==3.1.3
 psycopg2==2.8.6
 django-libsass==0.8
 markdown
+gunicorn
