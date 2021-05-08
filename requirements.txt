@@ -15,7 +15,7 @@ django_reversion==3.0.9
 environ==1.0
 #factory_boy==1.2
 python-dotenv==0.17.1
-Django>=3.0
+Djang0==2.2
 
 django-crispy-forms==1.11.2
 django-compressor==2.4.1
