@@ -294,3 +294,5 @@ LOGGING = {
 
 MARKDOWN_EXTENSIONS = ['smarty', 'tables', 'headerid', 'sane_lists', 'smart_strong',
                        'linkify']
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
