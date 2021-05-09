@@ -1,21 +1,22 @@
+Django==2.2.22
 Faker==8.1.2
 django_environ==0.4.5
 mock==4.0.3
 arrow==1.0.3
-django_markdown_app==0.9.6
+#django_markdown_app==0.9.6
 pytest==6.2.3
 django_debug_toolbar==3.2.1
 whitenoise==5.2.0
 factory_boy==3.2.0
 
 splinter==0.14.0
-django_markdown==0.8.4
+#django_markdown==0.8.4
 #django-markdown-app
 django_reversion==3.0.9
 environ==1.0
 #factory_boy==1.2
 python-dotenv==0.17.1
-Django==3.2
+
 
 django-crispy-forms==1.11.2
 django-compressor==2.4.1
@@ -25,3 +26,4 @@ psycopg2==2.8.6
 django-libsass==0.8
 markdown
 gunicorn
+django_markdown_app==0.9.6
