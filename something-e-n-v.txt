@@ -1,4 +1,0 @@
-DJANGO_SECRET_KEY=abcd1234
-DEBUG=False
-DATABASE_URL=postgres://yughmdttxaxffo:eb7eb5af9faaac039e0fb654ca264727d388f160cc5402679f4ca7484feb0e46@ec2-54-152-185-191.compute-1.amazonaws.com:5432/d29ltb9grncuik
-DJANGO_SETTINGS_MODULE=settings.production
